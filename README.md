@@ -1,1 +1,1 @@
-# Trabajo-pr-ctico-integrador-programacion-1
+# Trabajo-practico-integrador-programacion-1
