@@ -84,7 +84,7 @@ INSERT INTO Empleados (dniEmpleado, nombreEmpleado, sexoEmpleado, fechaNacEmplea
 -- Estructura de tabla para la tabla Categoria
 
 CREATE TABLE Categoria (
-  idCategoria NOT NULL AUTO INCREMENT PRIMARY KEY,
+  idCategoria int NOT NULL AUTO INCREMENT PRIMARY KEY,
   nombreCategoria varchar NOT NULL
 );
 
