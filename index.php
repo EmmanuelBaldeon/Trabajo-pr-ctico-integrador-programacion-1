@@ -9,15 +9,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
-    <h1 class="text-center p-3">Bienvenido al Sistema de Gestion de Recursos Humanos</h1> 
+    <script>
+      function eliminar() {
+        var respuesta=confirm("¿Estas seguro que quieres eliminar el registro?");  
+        return respuesta;
+      }
+    </script>
+    <h1 class="text-center p-3">Bienvenido al Sistema de Gestion de Recursos Humanos</h1>
+
+    <?php
+    include "modelo/conexion.php";
+    include "controlador/registro_empleado.php";
+    include "controlador/eliminar_empleado.php";
+    ?>
+    
     <div class="container-fluid row">
         <form class="col 4 p-3" method="POST">
           <h3 class="text-center ext-secondary">Ingreso de Datos</h3>
-
-          <?php
-            include "modelo/conexion.php";
-            include "controlador/registro_empleado.php"
-          ?>
 
           <div class="mb-3">
             <label class="form-label">Nombre</label>
@@ -87,33 +95,29 @@
              <?php
 
               include "modelo/conexion.php";
-              $sql = $conexion->query(" SELECT * FROM Empleados ");
+              $sql = $conexion->query(" SELECT * FROM empleados ");
               while($datos=$sql->fetch_object()) { ?>
                 <tr>
                   <td><?= $datos->idEmpleado ?></td>
-                  <td><?= $datos->nombreEmpleado ?></td>
-                  <td><?= $datos->apellidoEmpleado ?></td>
-                  <td><?= $datos->dniEmpleado ?></td>
-                  <td><?= $datos->fechaNacEmpleado ?></td>
-                  <td><?= $datos->fechaIngEmpleado ?></td>
-                  <td><?= $datos->sueldoEmpleado ?></td>
-                  <td><?= $datos->puestoEmpleado ?></td>
+                  <td><?= $datos->nombre ?></td>
+                  <td><?= $datos->apellido ?></td>
+                  <td><?= $datos->dni ?></td>
+                  <td><?= $datos->fechaNacimiento ?></td>
+                  <td><?= $datos->fechaIngreso ?></td>
+                  <td><?= $datos->sueldo ?></td>
+                  <td><?= $datos->puesto ?></td>
                   <td><?= $datos->codDepto ?></td>
                   <td>
                     <a href="modificar_empleado.php?id=<?= $datos->idEmpleado ?>" class="btn btn-small btn-warning">Editar</a>
-                    <a href="" class="btn btn-small btn-danger">Eliminar</a>
+                    <a onclick="return eliminar()" href="index.php?id=<?= $datos->idEmpleado ?>" class="btn btn-small btn-danger">Eliminar</a>
                   </td>
                 </tr>
               <?php }
 
              ?>
-               
              </tbody>
            </table>
         </div>
-
-  
-    <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
