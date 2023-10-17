@@ -11,14 +11,8 @@
   <body>
     <h1 class="text-center p-3">Bienvenido al Sistema de Gestion de Recursos Humanos</h1> 
     <div class="container-fluid row">
-        <form class="col 4 p-3" method="POST">
+        <form class="col 4 p-3">
           <h3 class="text-center ext-secondary">Ingreso de Datos</h3>
-
-          <?php
-            include "modelo/conexion.php";
-            include "controlador/registro_empleado.php"
-          ?>
-
           <div class="mb-3">
             <label class="form-label">Nombre</label>
             <input type="text" class="form-control" name="nombre">
@@ -33,15 +27,15 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Fecha de nacimiento</label>
-            <input type="date" class="form-control" name="fechaNacimiento">
+            <input type="date" class="form-control" name="fechaNac">
           </div>
           <div class="mb-3">
             <label class="form-label">Fecha de ingreso</label>
-            <input type="date" class="form-control" name="fechaIngreso">
+            <input type="date" class="form-control" name="fechaIng">
           </div>
           <div class="mb-3">
             <label class="form-label">Sueldo</label>
-            <input type="number" class="form-control" name="sueldo">
+            <input type="number" class="form-control" name="salario">
           </div>
           <div class="mb-3">
             <label class="form-label">Puesto</label>
@@ -51,20 +45,21 @@
             <label class="form-label">Departamento</label>
             <select id="dropdown" name="depto" class="form-control required">
               <option disabled selected value>Seleccionar</option>
-              <option value="1"> 1 | GERENCIA, BUENOS AIRES</option>
-              <option value="2"> 2 | PRODUCCION, BUENOS AIRES</option>
-              <option value="3"> 3 | VENTAS, BUENOS AIRES</option>
-              <option value="4"> 4 | VENTAS, CORDOBA</option>
-              <option value="1"> 5 | VENTAS, SANTA FE</option>
-              <option value="2"> 6 | VENTAS, MENDOZA</option>
-              <option value="3"> 7 | INVESTIGACION, BUENOS AIRES</option>
-              <option value="4"> 8 | COMERCIALIZACION, BUENOS AIRES</option>
-              <option value="1"> 9 | MANTENIMIENTO, BUENOS AIRES</option>
-              <option value="2"> 10 | MANTENIMIENTO, CORDOBA</option>
-              <option value="3"> 11 | MANTENIMIENTO, SANTA FE</option>
-              <option value="4"> 12 | MANTENIMIENTO, MENDOZA</option>
+              <option value="1"> 1</option>
+              <option value="2"> 2</option>
+              <option value="3"> 3</option>
+              <option value="4"> 4</option>
+              <option value="1"> 5</option>
+              <option value="2"> 6</option>
+              <option value="3"> 7</option>
+              <option value="4"> 8</option>
+              <option value="1"> 9</option>
+              <option value="2"> 10</option>
+              <option value="3"> 11</option>
+              <option value="4"> 12</option>
             </select>
-          </div>         
+          </div>
+        
           <button type="submit" class="btn btn-primary" name="btnregistrar">Registrar</button>
         </form>
         <div class="col-8 p-4">
@@ -87,20 +82,20 @@
              <?php
 
               include "modelo/conexion.php";
-              $sql = $conexion->query(" SELECT * FROM Empleados ");
+              $sql = $conexion->query("SELECT * FROM empleado");
               while($datos=$sql->fetch_object()) { ?>
                 <tr>
-                  <td><?= $datos->idEmpleado ?></td>
-                  <td><?= $datos->nombreEmpleado ?></td>
-                  <td><?= $datos->apellidoEmpleado ?></td>
-                  <td><?= $datos->dniEmpleado ?></td>
-                  <td><?= $datos->fechaNacEmpleado ?></td>
-                  <td><?= $datos->fechaIngEmpleado ?></td>
-                  <td><?= $datos->sueldoEmpleado ?></td>
-                  <td><?= $datos->puestoEmpleado ?></td>
-                  <td><?= $datos->codDepto ?></td>
+                  <td><? $datos->idEmpleado ?></td>
+                  <td><? $datos->nombreEmpleado ?></td>
+                  <td><? $datos->apellidoEmpleado ?></td>
+                  <td><? $datos->dniEmpleado ?></td>
+                  <td><? $datos->fechaNacEmpleado ?></td>
+                  <td><? $datos->fechaIngEmpleado ?></td>
+                  <td><? $datos->sueldoEmpleado ?></td>
+                  <td><? $datos->puestoEmpleado ?></td>
+                  <td><? $datos->codDepto ?></td>
                   <td>
-                    <a href="modificar_empleado.php?id=<?= $datos->idEmpleado ?>" class="btn btn-small btn-warning">Editar</a>
+                    <a href="" class="btn btn-small btn-warning">Editar</a>
                     <a href="" class="btn btn-small btn-danger">Eliminar</a>
                   </td>
                 </tr>
