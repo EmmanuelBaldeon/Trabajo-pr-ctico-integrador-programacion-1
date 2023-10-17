@@ -1,30 +1,34 @@
 -- Trabajo Practico Integrador Programacion I
 
--- Base de datos EmpleadosDepartamentos.sql
+-- Base de datos bdempleados.sql
 
--- Estructura de tabla para la tabla `Usuario`
+CREATE DATABASE IF NOT EXISTS bdempleados;
+
+USE bdempleados;
+
+-- Estructura de tabla para la tabla `usuario`
 
 CREATE TABLE Usuarios (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
-  nombreUsuario varchar(45) NOT NULL,
-  clave varchar(255) NOT NULL,
-  nombre varchar(200) NOT NULL,
-  apellido varchar(200) NOT NULL,
+  nombreUsuario varchar(20) NOT NULL,
+  clave varchar(20) NOT NULL,
+  nombre varchar(20) NOT NULL,
+  apellido varchar(20) NOT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY usuario (nombreUsuario)
 );
 
 -- Datos para la tabla `Usuario`
 
-INSERT INTO usuarios (nombreUsuario, clave, nombre, apellido) VALUES 
+INSERT INTO Usuario (nombreUsuario, clave, nombre, apellido) VALUES 
 ('PBlanco','password1234', 'Pedro','Blanco');
 
 -- Estructura de tabla para la tabla `departamentos`
 
 CREATE TABLE Departamentos (
   codDepto int NOT NULL PRIMARY KEY,
-  nombreDepto varchar NOT NULL,
-  ciudadDepto varchar NOT NULL
+  nombreDepto varchar(20) NOT NULL,
+  ciudadDepto varchar(20) NOT NULL
 );
 
 -- Datos para la tabla `Departamentos`
@@ -46,20 +50,20 @@ INSERT INTO Departamentos (codDepto, nombreDepto, ciudadDepto) VALUES
 -- Estructura de tabla para la tabla `Empleados`
 
 CREATE TABLE Empleados (
-  idEmpleado int NOT NULL AUTO INCREMENT PRIMARY KEY,
-  nombreEmpleado varchar NOT NULL,
-  apellidoEmpleado varchar NOT NULL,
-  dniEmpleado int NOT NULL,
-  fechaNacEmpleado date NOT NULL,
-  fechaIngEmpleado date NOT NULL,
-  sueldoEmpleado float NOT NULL,
-  puestoEmpleado varchar NOT NULL,
+  idEmpleado int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre varchar(20) NOT NULL,
+  apellido varchar(20) NOT NULL,
+  dni int NOT NULL,
+  fechaNacimiento date NOT NULL,
+  fechaIngreso date NOT NULL,
+  sueldo float NOT NULL,
+  puesto varchar(20) NOT NULL,
   codDepto int NOT NULL
 );
 
 -- Datos para la tabla Empleados
 
-INSERT INTO Empleados (idEmpleado, nombreEmpleado, apellidoEmpleado, dniEmpleado fechaNacEmpleado, fechaIngEmpleado, sueldoEmpleado, puestoEmpleado, codDepto) VALUES
+INSERT INTO Empleados (idEmpleado, nombre, apellido, dni, fechaNacimiento, fechaIngreso, sueldo, puesto, codDepto) VALUES
 (1, 'Abel', 'Gómez', 444444, '1939-12-24', '2000-10-01', 105000.00, 'Mecánico', 10),
 (2, 'Mario', 'Llano', 737689, '1945-08-30', '1990-05-16', 225000.00, 'Vendedor', 3),
 (3, 'Joaquín', 'Rosas', 768782, '1947-07-07', '1990-05-16', 225000.00, 'Vendedor', 5),
@@ -81,28 +85,27 @@ INSERT INTO Empleados (idEmpleado, nombreEmpleado, apellidoEmpleado, dniEmpleado
 (19, 'Diana', 'Solarte', 31174099, '1957-11-19', '1990-05-16', 1250000.00, 'Secretaria', 10),
 (20, 'Rosa', 'Angulo', 31178144, '1957-03-15', '1998-08-16', 3250000.00, 'Jefe Ventas', 1);
 
--- Estructura de tabla para la tabla Categoria
+-- Estructura de tabla para la tabla 'Categoria'
 
 CREATE TABLE Categoria (
-  idCategoria int NOT NULL AUTO INCREMENT PRIMARY KEY,
-  nombreCategoria varchar NOT NULL
+  idCategoria int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombreCategoria varchar(20) NOT NULL
 );
 
 -- Datos para la tabla `Categoria`
 
 INSERT INTO Categoria (idCategoria, nombreCategoria) VALUES
-(1, Grupo A),
-(2, Grupo B),
-(3, Grupo C),
-(4, Grupo D),
-(5, Grupo E);
+(1, 'Grupo A'),
+(2, 'Grupo B'),
+(3, 'Grupo C'),
+(4, 'Grupo D'),
+(5, 'Grupo E');
 
 -- Estructura de tabla para la tabla `CategoriaEmpleado`
-  
+
 CREATE TABLE CategoriaEmpleado (
   idEmpleado int NOT NULL,
   idCategoria int NOT NULL,
-  condicionEmpleado varchar,
-  descripcion DEFAULT NULL
+  condicionEmpleado varchar(20) DEFAULT NULL,
+  descripcion varchar(20) DEFAULT NULL
 );
-
