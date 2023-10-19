@@ -1,5 +1,5 @@
 <?php
-require_once 'claseUsuario/ControladorSesion.php';
+require_once 'controlador/controlador.php';
 
 if (! isset($_POST['usuario']) || ! isset($_POST['clave']))
 {
