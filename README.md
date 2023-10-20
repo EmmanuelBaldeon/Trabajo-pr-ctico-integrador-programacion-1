@@ -5,5 +5,5 @@
 # - Emmanuel Baldeon
 
 # Para poder ingresar al login:
-# - Usuario: PabloBlanco
-# - Clave: clave1234
+# - Usuario: PedroBlanco
+# - Contraseña: clave1234
