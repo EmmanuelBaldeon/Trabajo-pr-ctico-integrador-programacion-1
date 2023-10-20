@@ -72,8 +72,8 @@
               <option value="3"> 11 | MANTENIMIENTO, SANTA FE</option>
               <option value="4"> 12 | MANTENIMIENTO, MENDOZA</option>
             </select>
-          </div>         
-          <button type="submit" class="btn btn-primary" name="btnregistrar">Registrar</button>
+          </div>
+          <input name="btnregistrar" class="btn btn-primary" type="submit" value="Registrar">
         </form>
         <div class="col-8 p-4">
            <table class="table">
