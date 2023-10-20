@@ -1,14 +1,14 @@
 <?php
 
-include"modelo/conexion.php";
+include "modelo/conexion.php";
 
-$id=$_GET['idEmpleado'];
+$id = $_GET["id"];
 
-$sql=$conexion->query(" SELECT * FROM Empleados WHERE idEmpleado=$id ");
+$sql = $conexion->query(" SELECT * FROM Empleados WHERE idEmpleado = '$id' ");
 
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,17 +16,17 @@ $sql=$conexion->query(" SELECT * FROM Empleados WHERE idEmpleado=$id ");
     <title>Sistema de Gestion de Recursos Humanos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-  
+
 <body>
 <form class="col 4 p-3 m-auto" method="POST">
-  <h3 class="text-center ext-secondary">Modificar Empleado</h3>
-  
-  <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+  <h3 class="text-center alert alert-secondary">Modificar Empleado</h3>
+
+  <input type="hidden" name="id" value="<?= $_GET["idEmpleado"] ?> ">
   <?php
 
-  include"controlador/modifcar_empleado.php";
+  include "controlador/modificar_empleado.php";
 
-  while($datos=$sql->fetch_object()) {?>
+  while($datos=$sql->fetch_object()) { ?>
     <div class="mb-3">
       <label class="form-label">Nombre</label>
       <input type="text" class="form-control" name="nombre" value="<?= $datos->nombre ?>">
@@ -73,10 +73,10 @@ $sql=$conexion->query(" SELECT * FROM Empleados WHERE idEmpleado=$id ");
         <option value="4"> 12 | MANTENIMIENTO, MENDOZA</option>
       </select>
     </div>   
-    
+
   <?php }
   ?>
-      
+
   <button type="submit" class="btn btn-primary" name="btnregistrar">Registrar</button>
 </form>
 
