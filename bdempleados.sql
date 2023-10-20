@@ -6,22 +6,22 @@ CREATE DATABASE IF NOT EXISTS bdempleados;
 
 USE bdempleados;
 
--- Estructura de tabla para la tabla `usuario`
+-- Estructura de tabla para la tabla `Usuarios`
 
 CREATE TABLE Usuarios (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
-  nombreUsuario varchar(20) NOT NULL,
+  nombre_usuario varchar(20) NOT NULL,
   clave varchar(20) NOT NULL,
   nombre varchar(20) NOT NULL,
   apellido varchar(20) NOT NULL,
   PRIMARY KEY (id),
-  UNIQUE KEY usuario (nombreUsuario)
+  UNIQUE KEY usuario (nombre_usuario)
 );
 
--- Datos para la tabla `Usuario`
+-- Datos para la tabla `Usuarios`
 
-INSERT INTO Usuario (nombreUsuario, clave, nombre, apellido) VALUES 
-('PBlanco','password1234', 'Pedro','Blanco');
+INSERT INTO Usuarios (nombre_usuario, clave, nombre, apellido) VALUES 
+('PedroBlanco','clave1234', 'Pedro','Blanco');
 
 -- Estructura de tabla para la tabla `departamentos`
 
